@@ -6,9 +6,9 @@
 
 [1. 2D Mapping and Navigation ](#2DMappingAndNavigation)
 
-[   1.1 2D Mapping ](#2DMapping)
+   [   1.1 2D Mapping ](#2DMapping)
 
-[   1.2. 2D Navigation with path planning](#2DNavigationWithPathPlanning)
+   [   1.2. 2D Navigation with path planning](#2DNavigationWithPathPlanning)
 
 <a name="introduction"></a>
 # Introduction
