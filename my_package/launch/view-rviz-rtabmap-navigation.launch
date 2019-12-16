@@ -1,7 +1,4 @@
-<!--
-  Used for visualizing the 3d-map data and reconstruction point cloud data during 2D navigation
- -->
-
+<!--Used for visualizing the 3d-map data and reconstruction point cloud data during 2D navigation-->
 <launch>
 
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find my_package)/rviz/config-rtabmap-navigation.rviz"/>
