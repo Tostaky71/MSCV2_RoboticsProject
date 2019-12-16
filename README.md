@@ -33,6 +33,8 @@
 <a name="actionlib"></a>
 ### ActionLib
 
+The ActionLib package provides a standardized interface for performing tasks. Like for example, moving the base to a target location or performing a laser scan. The action client and server communicate with each other using a predefined action protocol. This action protocol relies on ROS topics in a specified ROS namespace in order to transport messages.
+
 <a name="2DMappingAndNavigation"></a>
 # 1.&ensp; 2D Mapping and Navigation
 
