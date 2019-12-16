@@ -4,7 +4,11 @@
 # Table of contents
 [ Introduction ](#introduction)
 
-*[ Introduction ](#introduction)
+&ensp;&ensp;&ensp;[- Description of the Project ](#description)
+
+&ensp;&ensp;&ensp;[- Dependencies ](#dependencies)
+
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[- Point Cloud Library ](#pcl)
 
 [1. 2D Mapping and Navigation ](#2DMappingAndNavigation)
 
