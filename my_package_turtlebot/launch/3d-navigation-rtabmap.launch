@@ -2,7 +2,7 @@
 <launch>
   
 <!--To bringup the turtlebot/-->
-  <include file = "$(find turtlebot_bringup)/launch/minimal.launch" />      
+  <include file = "$(find turtlebot_bringup)/launch/minimal.launch"/>      
 
 <!--To start the joystick/-->
   <!--include file = "$(find turtlebot_teleop)/launch/logitech.launch" /--> 
