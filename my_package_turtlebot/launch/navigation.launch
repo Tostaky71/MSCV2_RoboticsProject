@@ -1,8 +1,8 @@
 <launch>
-        <include file = "$(find turtlebot_vibot_bringup)/launch/minimal_rplidar.launch" />
+        <include file = "$(find turtlebot_vibot_bringup)/launch/minimal_rplidar.launch"/>
                 <!--This line activates the lidar and the turtlebot/-->
 
-        <include file = "$(find turtlebot_vibot_nav)/launch/amcl_demo_rplidar.launch" />
+        <include file = "$(find turtlebot_vibot_nav)/launch/amcl_demo_rplidar.launch"/>
                 <!--This line activates the navigation on the turtlebot/-->
 </launch>
 
