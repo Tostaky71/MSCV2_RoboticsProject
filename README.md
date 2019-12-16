@@ -3,7 +3,7 @@
 
 # Table of contents
 [ Introduction ](#introduction)
-⋅⋅*[ Introduction ](#introduction)
+*[ Introduction ](#introduction)
 
 [1. 2D Mapping and Navigation ](#2DMappingAndNavigation)
 
