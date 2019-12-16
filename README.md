@@ -17,7 +17,7 @@ sometext
 
 
 <a name="2DMappingAndNavigation"></a>
-# 1. 2D Mapping and Navigation
+# 1. &ensp; 2D Mapping and Navigation
 
 sometext
 
