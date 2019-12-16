@@ -17,19 +17,19 @@ sometext
 
 
 <a name="2DMappingAndNavigation"></a>
-# 1. &ensp; 2D Mapping and Navigation
+# 1.&ensp; 2D Mapping and Navigation
 
 sometext
 
 
 <a name="2DMapping"></a>
-## 1.1. 2D Mapping
+## 1.1.&ensp; 2D Mapping
 
 sometext
 
 
 <a name="2DNavigationWithPathPlanning"></a>
-## 1.2. 2D Navigation with path planning
+## 1.2.&ensp; 2D Navigation with path planning
 
 
 
