@@ -8,7 +8,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1.1. 2D Mapping ](#2DMapping)
 
-&ensp;[1.2. 2D Navigation with path planning](#2DNavigationWithPathPlanning)
+&ensp;&ensp;&ensp;&ensp;&ensp;[1.2. 2D Navigation with path planning](#2DNavigationWithPathPlanning)
 
 <a name="introduction"></a>
 # Introduction
