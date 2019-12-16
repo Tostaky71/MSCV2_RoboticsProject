@@ -1,0 +1,7 @@
+<launch>
+	<include file = "$(find turtlebot_teleop)/launch/logitech.launch" />
+		<!--This line activates the logitech remote control/-->
+
+	<include file = "$(find turtlebot_rviz_launchers)/launch/view_navigation.launch" />
+		<!--This line opens RVIZ so that we can see the evolution of the map/-->
+</launch>

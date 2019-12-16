@@ -1,0 +1,15 @@
+<!--
+  Used for visualizing the 3d-map data and reconstruction point cloud data during 2D navigation
+ -->
+
+<launch>
+
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find my_package)/rviz/config-rtabmap-navigation.rviz"/>
+
+	<!--To start the joystick on workstation(if connected to turtlebot)/-->
+	<include file = "$(find turtlebot_teleop)/launch/logitech.launch" /> 
+
+	<node pkg="my_package" name="pathplanning" type="my_map_navigation2.py"/>
+	<!-- This line gives a predefined path to the robot/-->
+
+</launch>
