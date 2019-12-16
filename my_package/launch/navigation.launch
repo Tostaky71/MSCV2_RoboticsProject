@@ -1,5 +1,5 @@
 <launch>
-	<include file = "$(find turtlebot_rviz_launchers)/launch/view_navigation.launch" />
+	<include file = "$(find turtlebot_rviz_launchers)/launch/view_navigation.launch"/>
 	<!-- This line opens RVIZ in order to see the map with the robot inside/-->
 
 	<node pkg="my_package" name="pathplanning" type="my_map_navigation.py"/>
