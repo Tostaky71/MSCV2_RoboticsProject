@@ -37,19 +37,19 @@
 <a name="turtlebot_vibot"></a>
 ### Turtlebot_vibot
 
-Download [here](https://github.com/roboticslab-fr/turtlebot_vibot "turtlebot_vibot package") the turtlebot_vibot package.
+Find [here](https://github.com/roboticslab-fr/turtlebot_vibot "turtlebot_vibot package") the turtlebot_vibot package.
 
 <a name="pcl"></a>
 ### Point Cloud Library
 
-Download [here](https://github.com/ros-perception/perception_pcl "perception_pcl package") the perception_pcl package.
+Find [here](https://github.com/ros-perception/perception_pcl "perception_pcl package") the perception_pcl package.
 
 <a name="actionlib"></a>
 ### ActionLib
 
 The ActionLib package provides a standardized interface for performing tasks. Like for example, moving the base to a target location or performing a laser scan. The action client and server communicate with each other using a predefined action protocol. This action protocol relies on ROS topics in a specified ROS namespace in order to transport messages.
 
-Download [here](https://github.com/ros/actionlib "actionlib package") the actionlib package.
+Find [here](https://github.com/ros/actionlib "actionlib package") the actionlib package.
 
 <a name="rgbdslam"></a>
 ### RgbdSlam
