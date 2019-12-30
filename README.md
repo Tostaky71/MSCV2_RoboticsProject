@@ -98,7 +98,7 @@ Find [here](http://wiki.ros.org/rgbdslam) the rtabmap_ros package
 
 
 <a name="2DNavigationwith3DPointCloudRegistration"></a>
-## 2.2.&ensp; 2D Navigation with 3D Point Cloud 
+## 2.2.&ensp; 2D Navigation with 3D Point Cloud Registration
 
 
 
