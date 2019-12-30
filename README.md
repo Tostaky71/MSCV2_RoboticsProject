@@ -16,7 +16,7 @@
 
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[ RgbdSlam ](#rgbdslam)
 
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[ RgbdSlam ](#rrtabmap)
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[ Rtabmap_Ros ](#rtabmap_ros)
 
 [1. 2D Mapping and Navigation ](#2DMappingAndNavigation)
 
@@ -60,6 +60,12 @@ Find [here](https://github.com/ros/actionlib "actionlib package") the actionlib 
 <a name="rgbdslam"></a>
 ### RgbdSlam
 
+<a name="rtabmap"></a>
+### Rtabmap
+This package is a ROS wrapper of RTAB-Map (Real-Time Appearance-Based Mapping), a RGB-D SLAM approach based on a global loop closure detector with real-time constraints. This package can be used to generate a 3D point clouds of the environment and/or to create a 2D occupancy grid map for navigation. The tutorials and demos show some examples of mapping with RTAB-Map.
+
+Find [here](http://wiki.ros.org/rtabmap_ros) the rtabmap_ros package
+
 
 <a name="2DMappingAndNavigation"></a>
 # 1.&ensp; 2D Mapping and Navigation
@@ -85,8 +91,6 @@ Find [here](https://github.com/ros/actionlib "actionlib package") the actionlib 
 
 <a name="2D+3DMapping"></a>
 ## 2.1.&ensp; 2D + 3D Mapping
-### Rtabmap
-This package is a ROS wrapper of RTAB-Map (Real-Time Appearance-Based Mapping), a RGB-D SLAM approach based on a global loop closure detector with real-time constraints. This package can be used to generate a 3D point clouds of the environment and/or to create a 2D occupancy grid map for navigation. The tutorials and demos show some examples of mapping with RTAB-Map.
 
 
 <a name="2DNavigationwith3DPointCloudRegistration"></a>
