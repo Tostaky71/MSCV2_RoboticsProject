@@ -16,7 +16,7 @@
 
 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[ RgbdSlam ](#rgbdslam)
 
-&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[ Rtabmap_Ros ](#rtabmap_ros)
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[ Rtabmap ](#rtabmap_ros)
 
 [1. 2D Mapping and Navigation ](#2DMappingAndNavigation)
 
@@ -59,12 +59,16 @@ Find [here](https://github.com/ros/actionlib "actionlib package") the actionlib 
 
 <a name="rgbdslam"></a>
 ### RgbdSlam
+rgbdslam (v2) is a SLAM solution for RGB-D cameras. It provides the current pose of the camera and allows to create a registered point cloud or an octomap. It features a GUI interface for easy usage, but can also be controlled by ROS service calls, e.g., when running on a robot.
+
+Find [here](http://wiki.ros.org/rtabmap_ros) the rgbdslam package
+
 
 <a name="rtabmap"></a>
 ### Rtabmap
 This package is a ROS wrapper of RTAB-Map (Real-Time Appearance-Based Mapping), a RGB-D SLAM approach based on a global loop closure detector with real-time constraints. This package can be used to generate a 3D point clouds of the environment and/or to create a 2D occupancy grid map for navigation. The tutorials and demos show some examples of mapping with RTAB-Map.
 
-Find [here](http://wiki.ros.org/rtabmap_ros) the rtabmap_ros package
+Find [here](http://wiki.ros.org/rgbdslam) the rtabmap_ros package
 
 
 <a name="2DMappingAndNavigation"></a>
