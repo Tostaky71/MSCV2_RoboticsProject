@@ -37,6 +37,8 @@
 <a name="turtlebot_vibot"></a>
 ### Turtlebot_vibot
 
+Download here the [turtlebot_vibot](https://github.com/roboticslab-fr/turtlebot_vibot "turtlebot_vibot package") package.
+
 <a name="pcl"></a>
 ### Point Cloud Library
 
