@@ -86,19 +86,26 @@ Find [here](http://wiki.ros.org/rtabmap_ros "rtabmap_ros package") the rtabmap_r
 ## 1.1.&ensp; 2D Mapping
 
 1. On the Workstation :
-''' console
+``` console
 roslaunch my_package mapping.launch
-'''
+```
 
 2. On the Turtlebot's laptop :
-''' console
+``` console
 roslaunch my_package_turtlebot mapping.launch
-'''
+```
 
 <a name="2DNavigationWithPathPlanning"></a>
 ## 1.2.&ensp; 2D Navigation with path planning
 
+``` console
+roslaunch my_package navigation.launch
+```
 
+2. On the Turtlebot's laptop :
+``` console
+roslaunch my_package_turtlebot navigation.launch
+```
 
 
 
