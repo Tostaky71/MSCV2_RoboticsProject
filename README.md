@@ -24,7 +24,7 @@
 
 &ensp;&ensp;&ensp;[1.2. 2D Navigation with path planning](#2DNavigationWithPathPlanning)
 
-[2. 2D + 3D Mapping and Navigation ](#2D+3DMappingAndNavigation)
+[2. 2D+3D Mapping and Navigation ](#2D+3DMappingAndNavigation)
 
 &ensp;&ensp;&ensp;[2.1. 2D+3D Mapping ](#2D+3DMapping)
 
@@ -79,11 +79,15 @@ Find [here](http://wiki.ros.org/rtabmap_ros "rtabmap_ros package") the rtabmap_r
 <a name="2DMappingAndNavigation"></a>
 # 1.&ensp; 2D Mapping and Navigation
 
-
+This part presents our method to, first, build a 2D map of a room, and then let the Turtlebot navigate autonomously thanks to a pre-defined path on the built 2D map, and with obstacles avoidance.
 
 
 <a name="2DMapping"></a>
 ## 1.1.&ensp; 2D Mapping
+
+For the 2D mapping, we have chosen to use the LiDar instead of the Kinect, because the Kinect can only see a small angle before its eyes whereas the LiDar sees everywhere around itself, a 360° angle.
+
+![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/KinectLidar.PNG)
 
 1. On the Turtlebot's laptop :
 ``` console
