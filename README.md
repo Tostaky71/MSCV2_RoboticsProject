@@ -24,11 +24,11 @@
 
 &ensp;&ensp;&ensp;[1.2. 2D Navigation with path planning](#2DNavigationWithPathPlanning)
 
-[2. 2D+3D Mapping and Navigation ](#2D+3DMappingAndNavigation)
+[2. 2D+3D Mapping and Navigation with 3D Point Cloud Registration](#2D+3DMappingandNavigationwith3DPointCloudRegistration)
 
 &ensp;&ensp;&ensp;[2.1. 2D+3D Mapping ](#2D+3DMapping)
 
-&ensp;&ensp;&ensp;[2.2. 2D Navigation With 3D pointCloud Registration](#2DNavigationwith3DPointCloudRegistration)
+&ensp;&ensp;&ensp;[2.2. 2D Navigation With 3D PointCloud Registration](#2DNavigationwith3DPointCloudRegistration)
 
 [ Conclusion ](#conclusion)
 
@@ -169,14 +169,42 @@ This [navigation.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob
 
 
 
-<a name="2D+3DMappingAndNavigation"></a>
-# 2.&ensp; 2D + 3D Mapping and 3D Point Cloud Registration by 2D Navigation
+<a name="2D+3DMappingandNavigationwith3DPointCloudRegistration"></a>
+# 2.&ensp; 2D+3D Mapping and Navigation with 3D Point Cloud Registration
+
+This part of our project will use a RGBDSLAM approach to first build a RTAB-map which is in the form of a databse file (by default rtabmap.db) and then using this database to navigate in the built map usimg AMCL algorithm with defined waypoints (path planning and with obstacle avoidance) and registering the 3-D Point Cloud Data in real time of the environment.
 
 
 
 <a name="2D+3DMapping"></a>
 ## 2.1.&ensp; 2D + 3D Mapping
 
+For the 2D+3D Mapping, we used rtabmap_ros package where rtabmap is its main node which is a wrapper of the RTAB-Map Core library. This is where the graph of the map is incrementally built and optimized when a loop closure is detected. The online output of the node is the local graph with the latest added data to the map. The default location of the RTAB-Map database is "home/.ros/rtabmap.db" and the workspace is also set to "home/.ros". 
+
+As we need to store the 3D information, we have to make sure we set subscribe_scan to "true" and explicitly set Grid/FromDepth to "true" to assemble 3D Kinect clouds for /rtabmap/cloud_map.
+
+<node pkg="rtabmap_ros" type="rtabmap" name="rtabmap">
+   ...
+   <param name="Grid/FromDepth" type="string" value="true"/>
+</node>
+
+![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/2d+3d_mapping.PNG)
+
+1. On the Turtlebot's laptop :
+```
+$ roslaunch my_package_turtlebot 3d-mapping-rtabmap.launch
+```
+This [3d-mapping-rtabmap.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/3d-mapping-rtabmap.launch "3d-mapping-rtabmap.launch Turtlebot laptop") file brings up the kobuki base and the LiDar and the kinect for starting a mapping process using both 2D and 3D information from the scene. The mapping process is somewhat similar to what we use in 
+[gmapping_demo.launch](https://github.com/turtlebot/turtlebot_apps/blob/indigo/turtlebot_navigation/launch/gmapping_demo.launch "gmapping_demo.launch Turtlebot laptop") of the official [SLAM Map Building with TurtleBot tutorial](http://wiki.ros.org/turtlebot_navigation/Tutorials/Build%20a%20map%20with%20SLAM
+"SLAM Map Building with TurtleBot"). 
+
+
+
+2. On the Workstation :
+```
+$ roslaunch my_package mapping.launch
+```
+This [mapping.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/launch/mapping.launch "mapping.launch Workstation") file allows us to control the Turtlebot manually with the logitech joystick, and visualize the robot and the mapping on Rviz. The joystick has to be plugged in the Workstation.
 
 
 <a name="2DNavigationwith3DPointCloudRegistration"></a>
