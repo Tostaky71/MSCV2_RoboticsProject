@@ -24,11 +24,13 @@
 
 &ensp;&ensp;&ensp;[1.2. 2D Navigation with path planning](#2DNavigationWithPathPlanning)
 
-
 [2. 2D + 3D Mapping and Navigation ](#2D+3DMappingAndNavigation)
+
 &ensp;&ensp;&ensp;[2.1. 2D+3D Mapping ](#2D+3DMapping)
 
 &ensp;&ensp;&ensp;[2.2. 2D Navigation With 3D pointCloud Registration](#2DNavigationwith3DPointCloudRegistration)
+
+[ Conclusion ](#conclusion)
 
 
 <a name="introduction"></a>
@@ -59,16 +61,17 @@ Find [here](https://github.com/ros/actionlib "actionlib package") the actionlib 
 
 <a name="rgbdslam"></a>
 ### RgbdSlam
+
 rgbdslam (v2) is a SLAM solution for RGB-D cameras. It provides the current pose of the camera and allows to create a registered point cloud or an octomap. It features a GUI interface for easy usage, but can also be controlled by ROS service calls, e.g., when running on a robot.
 
-Find [here](http://wiki.ros.org/rtabmap_ros) the rgbdslam package
-
+Find [here](http://wiki.ros.org/rtabmap_ros) the rgbdslam package.
 
 <a name="rtabmap"></a>
 ### Rtabmap
+
 This package is a ROS wrapper of RTAB-Map (Real-Time Appearance-Based Mapping), a RGB-D SLAM approach based on a global loop closure detector with real-time constraints. This package can be used to generate a 3D point clouds of the environment and/or to create a 2D occupancy grid map for navigation. The tutorials and demos show some examples of mapping with RTAB-Map.
 
-Find [here](http://wiki.ros.org/rgbdslam) the rtabmap_ros package
+Find [here](http://wiki.ros.org/rgbdslam) the rtabmap_ros package.
 
 
 <a name="2DMappingAndNavigation"></a>
@@ -87,6 +90,7 @@ Find [here](http://wiki.ros.org/rgbdslam) the rtabmap_ros package
 ## 1.2.&ensp; 2D Navigation with path planning
 
 
+
 <a name="2D+3DMappingAndNavigation"></a>
 # 2.&ensp; 2D + 3D Mapping and Navigation
 
@@ -97,8 +101,15 @@ Find [here](http://wiki.ros.org/rgbdslam) the rtabmap_ros package
 ## 2.1.&ensp; 2D + 3D Mapping
 
 
+
 <a name="2DNavigationwith3DPointCloudRegistration"></a>
 ## 2.2.&ensp; 2D Navigation with 3D Point Cloud Registration
+
+
+<a name="conclusion"></a>
+# Conclusion
+
+Find [here](https://www.youtube.com/watch?v=6kZGIS9Ye74&t=1s "project video") the video that illustrates our project.
 
 
 
