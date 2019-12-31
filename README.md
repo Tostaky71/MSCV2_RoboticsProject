@@ -90,13 +90,13 @@ For the 2D mapping, we have chosen to use the LiDar instead of the Kinect, becau
 ![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/KinectLidar.PNG)
 
 1. On the Turtlebot's laptop :
-``` console
+```
 roslaunch my_package_turtlebot mapping.launch
 ```
 This [mapping.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/mapping.launch "mapping.launch Turtlebot laptop") file brings up the kobuki base and the LiDar of the Turtlebot, and activates the mapping process.
 
 2. On the Workstation :
-``` console
+```
 roslaunch my_package mapping.launch
 ```
 This [mapping.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/launch/mapping.launch "mapping.launch Workstation") file allows us to control the Turtlebot manually with the logitech joystick, and visualize the robot and the mapping on Rviz. The joystick has to be plugged in the Workstation.
@@ -105,20 +105,20 @@ When the map has been built, we need to save it in order to do the next part : n
 ```
 rosrun map_server map_saver -f /maps/my_map
 ```
-
+We should obtain two files describing the map : my_map.pgm and my_map.yaml
 
 
 <a name="2DNavigationWithPathPlanning"></a>
 ## 1.2.&ensp; 2D Navigation with path planning
 
 1. On the Turtlebot's laptop :
-``` console
+```
 roslaunch my_package_turtlebot navigation.launch
 ```
 This [navigation.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/navigation.launch "navigation.launch Turtlebot laptop") file brings up the kobuki base and the LiDar of the Turtlebot, and activates the navigation process with amcl and the LiDar.
 
 2. On the Workstation :
-``` console
+```
 roslaunch my_package navigation.launch
 ```
 This [navigation.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/launch/navigation.launch "navigation.launch Turtlebot laptop") file allows us to visualize the robot and its navigation on Rviz, and activates the pre-defined navigation.
