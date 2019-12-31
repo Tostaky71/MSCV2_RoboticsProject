@@ -42,6 +42,8 @@
 <a name="dependencies"></a>
 ## Dependencies
 
+This repository contains 2 packages : the *my_package* package has to be installed on the workstation and the *my_package_turtlebot* has to be installed on the Turtlebot's laptop. These packages won't work properly if the following packages are not installed.
+
 <a name="turtlebot_vibot"></a>
 ### Turtlebot_vibot
 
@@ -64,14 +66,14 @@ Find [here](https://github.com/ros/actionlib "actionlib package") the actionlib 
 
 rgbdslam (v2) is a SLAM solution for RGB-D cameras. It provides the current pose of the camera and allows to create a registered point cloud or an octomap. It features a GUI interface for easy usage, but can also be controlled by ROS service calls, e.g., when running on a robot.
 
-Find [here](http://wiki.ros.org/rtabmap_ros) the rgbdslam package.
+Find [here](http://wiki.ros.org/rgbdslam "rgbdslam package") the rgbdslam package.
 
 <a name="rtabmap"></a>
 ### Rtabmap
 
 This package is a ROS wrapper of RTAB-Map (Real-Time Appearance-Based Mapping), a RGB-D SLAM approach based on a global loop closure detector with real-time constraints. This package can be used to generate a 3D point clouds of the environment and/or to create a 2D occupancy grid map for navigation. The tutorials and demos show some examples of mapping with RTAB-Map.
 
-Find [here](http://wiki.ros.org/rgbdslam) the rtabmap_ros package.
+Find [here](http://wiki.ros.org/rtabmap_ros "rtabmap_ros package") the rtabmap_ros package.
 
 
 <a name="2DMappingAndNavigation"></a>
@@ -83,17 +85,26 @@ Find [here](http://wiki.ros.org/rgbdslam) the rtabmap_ros package.
 <a name="2DMapping"></a>
 ## 1.1.&ensp; 2D Mapping
 
+1. On the Workstation :
+''' console
+roslaunch my_package mapping.launch
+'''
 
-
+2. On the Turtlebot's laptop :
+''' console
+roslaunch my_package_turtlebot mapping.launch
+'''
 
 <a name="2DNavigationWithPathPlanning"></a>
 ## 1.2.&ensp; 2D Navigation with path planning
 
 
 
-<a name="2D+3DMappingAndNavigation"></a>
-# 2.&ensp; 2D + 3D Mapping and Navigation
 
+
+
+<a name="2D+3DMappingAndNavigation"></a>
+# 2.&ensp; 2D + 3D Mapping, 2D Navigation and 3D Point Cloud Registration
 
 
 
