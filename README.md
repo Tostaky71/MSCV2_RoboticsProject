@@ -79,7 +79,7 @@ Find [here](http://wiki.ros.org/rtabmap_ros "rtabmap_ros package") the rtabmap_r
 <a name="2DMappingAndNavigation"></a>
 # 1.&ensp; 2D Mapping and Navigation
 
-This part presents our method to, first, build a 2D map of a room, and then let the Turtlebot navigate autonomously thanks to a pre-defined path on the built 2D map, and with obstacles avoidance.
+This part presents our method to, first, build a 2D map of a room, and then let the Turtlebot navigate autonomously thanks to a pre-defined path on the known 2D map, and with obstacles avoidance.
 
 
 <a name="2DMapping"></a>
@@ -100,6 +100,12 @@ This [mapping.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/ma
 roslaunch my_package mapping.launch
 ```
 This [mapping.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/launch/mapping.launch "mapping.launch Workstation") file allows us to control the Turtlebot manually with the logitech joystick, and visualize the robot and the mapping on Rviz. The joystick has to be plugged in the Workstation.
+
+When the map has been built, we need to save it in order to do the next part : navigation. We use the command below to save the map, where */maps/my_map* is the path and the name of the map file :
+```
+rosrun map_server map_saver -f /maps/my_map
+```
+
 
 
 <a name="2DNavigationWithPathPlanning"></a>
