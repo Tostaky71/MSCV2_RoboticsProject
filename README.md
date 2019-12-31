@@ -91,19 +91,19 @@ For the 2D mapping, we have chosen to use the LiDar instead of the Kinect, becau
 
 1. On the Turtlebot's laptop :
 ```
-roslaunch my_package_turtlebot mapping.launch
+$ roslaunch my_package_turtlebot mapping.launch
 ```
 This [mapping.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/mapping.launch "mapping.launch Turtlebot laptop") file brings up the kobuki base and the LiDar of the Turtlebot, and activates the mapping process.
 
 2. On the Workstation :
 ```
-roslaunch my_package mapping.launch
+$ roslaunch my_package mapping.launch
 ```
 This [mapping.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/launch/mapping.launch "mapping.launch Workstation") file allows us to control the Turtlebot manually with the logitech joystick, and visualize the robot and the mapping on Rviz. The joystick has to be plugged in the Workstation.
 
-When the map has been built, we need to save it in order to do the next part : navigation. We use the command below to save the map, where */maps/my_map* is the path and the name of the map file :
+When the map has been built, we need to save it in order to do the next part : navigation. We use the command below to save the map, where */turtlebot_vibot_nav/maps/my_map* is the path and the name of the map file :
 ```
-rosrun map_server map_saver -f /maps/my_map
+$ rosrun map_server map_saver -f /turtlebot_vibot_nav/maps/my_map
 ```
 We should obtain two files describing the map : my_map.pgm and my_map.yaml
 
@@ -111,15 +111,24 @@ We should obtain two files describing the map : my_map.pgm and my_map.yaml
 <a name="2DNavigationWithPathPlanning"></a>
 ## 1.2.&ensp; 2D Navigation with path planning
 
+In this part, we need to modify few lines in the *turtlebot_vibot* package. For that, go into its sub-package *turtlebot_vibot_nav*, the *launch* directory and open the [amcl_demo_rplidar.launch](https://github.com/roboticslab-fr/turtlebot_vibot/blob/master/turtlebot_vibot_nav/launch/amcl_demo_rplidar.launch "amcl_demo_rplidar.launch turtlebot_vibot") file to modify it with the few lines below, starting from line 20 of the file :
+```
+<!-- Map server -->
+<!--arg name="map_file" default="$(env TURTLEBOT_MAP_FILE)"/-->
+<arg name="map_file" default="$(find turtlebot_vibot_nav)/maps/my_map.yaml"/>
+<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+```
+This modification of giving the path map, allows us to open the known map directly by launching this file.
+
 1. On the Turtlebot's laptop :
 ```
-roslaunch my_package_turtlebot navigation.launch
+$ roslaunch my_package_turtlebot navigation.launch
 ```
 This [navigation.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/navigation.launch "navigation.launch Turtlebot laptop") file brings up the kobuki base and the LiDar of the Turtlebot, and activates the navigation process with amcl and the LiDar.
 
 2. On the Workstation :
 ```
-roslaunch my_package navigation.launch
+$ roslaunch my_package navigation.launch
 ```
 This [navigation.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/launch/navigation.launch "navigation.launch Turtlebot laptop") file allows us to visualize the robot and its navigation on Rviz, and activates the pre-defined navigation.
 
