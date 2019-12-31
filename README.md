@@ -85,33 +85,37 @@ Find [here](http://wiki.ros.org/rtabmap_ros "rtabmap_ros package") the rtabmap_r
 <a name="2DMapping"></a>
 ## 1.1.&ensp; 2D Mapping
 
-1. On the Workstation :
-``` console
-roslaunch my_package mapping.launch
-```
-
-2. On the Turtlebot's laptop :
+1. On the Turtlebot's laptop :
 ``` console
 roslaunch my_package_turtlebot mapping.launch
 ```
+This [mapping.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/mapping.launch "mapping.launch Turtlebot laptop") file brings up the kobuki base and the LiDar of the Turtlebot, and activates the mapping process.
+
+2. On the Workstation :
+``` console
+roslaunch my_package mapping.launch
+```
+This [mapping.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/launch/mapping.launch "mapping.launch Workstation") file allows us to control the Turtlebot manually with the logitech joystick, and visualize the robot and the mapping on Rviz. The joystick has to be plugged in the Workstation.
+
 
 <a name="2DNavigationWithPathPlanning"></a>
 ## 1.2.&ensp; 2D Navigation with path planning
 
-``` console
-roslaunch my_package navigation.launch
-```
-
-2. On the Turtlebot's laptop :
+1. On the Turtlebot's laptop :
 ``` console
 roslaunch my_package_turtlebot navigation.launch
 ```
+This [navigation.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/navigation.launch "navigation.launch Turtlebot laptop") file brings up the kobuki base and the LiDar of the Turtlebot, and activates the navigation process with amcl and the LiDar.
 
-
+2. On the Workstation :
+``` console
+roslaunch my_package navigation.launch
+```
+This [navigation.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/launch/navigation.launch "navigation.launch Turtlebot laptop") file allows us to visualize the robot and its navigation on Rviz, and activates the pre-defined navigation.
 
 
 <a name="2D+3DMappingAndNavigation"></a>
-# 2.&ensp; 2D + 3D Mapping, 2D Navigation and 3D Point Cloud Registration
+# 2.&ensp; 2D + 3D Mapping and 3D Point Cloud Registration by 2D Navigation
 
 
 
