@@ -24,13 +24,15 @@
 
 &ensp;&ensp;&ensp;[1.2. 2D Navigation with path planning](#2DNavigationWithPathPlanning)
 
-[2. 2D+3D Mapping and Navigation with 3D Point Cloud Registration](#2D+3DMappingandNavigationwith3DPointCloudRegistration)
+[2. 2D+3D Mapping and Navigation ](#2D+3DMappingAndNavigation)
 
 &ensp;&ensp;&ensp;[2.1. 2D+3D Mapping ](#2D+3DMapping)
 
-&ensp;&ensp;&ensp;[2.2. 2D Navigation With 3D PointCloud Registration](#2DNavigationwith3DPointCloudRegistration)
+&ensp;&ensp;&ensp;[2.2. 2D Navigation With 3D pointCloud Registration](#2DNavigationwith3DPointCloudRegistration)
 
 [ Conclusion ](#conclusion)
+
+[ References ](#references)
 
 
 <a name="introduction"></a>
@@ -76,10 +78,13 @@ This package is a ROS wrapper of RTAB-Map (Real-Time Appearance-Based Mapping), 
 Find [here](http://wiki.ros.org/rtabmap_ros "rtabmap_ros package") the rtabmap_ros package.
 
 
+
 <a name="2DMappingAndNavigation"></a>
 # 1.&ensp; 2D Mapping and Navigation
 
 This part presents our method to, first, build a 2D map of a room, and then let the Turtlebot navigate autonomously thanks to a pre-defined path on the known 2D map, and with obstacles avoidance.
+
+
 
 
 <a name="2DMapping"></a>
@@ -105,11 +110,15 @@ When the map has been built, we need to save it in order to do the next part : n
 ```
 $ rosrun map_server map_saver -f /turtlebot_vibot_nav/maps/my_map
 ```
-We should obtain two files describing the map : my_map.pgm and my_map.yaml
+We should obtain two files describing the map : my_map.pgm and my_map.yaml. The .yaml file that describes the map meta-data and points to the .pgm image file.
+
+
 
 
 <a name="2DNavigationWithPathPlanning"></a>
 ## 1.2.&ensp; 2D Navigation with path planning
+
+### Modifications
 
 In this part, we need to modify few lines in the *turtlebot_vibot* package. For that, go into its sub-package *turtlebot_vibot_nav*, the *launch* directory and open the [amcl_demo_rplidar.launch](https://github.com/roboticslab-fr/turtlebot_vibot/blob/master/turtlebot_vibot_nav/launch/amcl_demo_rplidar.launch "amcl_demo_rplidar.launch turtlebot_vibot") file to modify it with the few lines below, starting from line 20 of the file :
 ```
@@ -118,7 +127,29 @@ In this part, we need to modify few lines in the *turtlebot_vibot* package. For 
 <arg name="map_file" default="$(find turtlebot_vibot_nav)/maps/my_map.yaml"/>
 <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 ```
-This modification of giving the path map, allows us to open the known map directly by launching this file.
+This modification of giving the path map, allows us to open the known map directly by launching this file. Moreover, to start the navigation, we need to give an initial position to the robot. So, we first open a manual navigation on the known map thanks to the following commands :
+1. On the Turtlebot's laptop :
+```
+$ roslaunch my_package_turtlebot navigation.launch
+```
+2. On the Workstation :
+```
+$ roslaunch turtlebot_rviz_launchers view_navigation.launch --screen
+$ roslaunch turtlebot_teleop logitech.launch
+$ rosrun tf tf_echo /map /base_link
+```
+This last line allows us to see the current robot position coordinates on the map. Then, with the joystick, we place the robot at the position we want to define as initial position of our autonomous navigation, we get its coordinates and we place them into the [amcl_demo_rplidar.launch](https://github.com/roboticslab-fr/turtlebot_vibot/blob/master/turtlebot_vibot_nav/launch/amcl_demo_rplidar.launch "amcl_demo_rplidar.launch turtlebot_vibot") file where we can write the initial position coordinates of the turtlebot (replace the *0.0* values by the coordinates we want) :
+```
+<arg name="initial_pose_x" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
+<arg name="initial_pose_y" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
+<arg name="initial_pose_a" default="0.0"/>
+```
+
+### Planning a path
+
+In the previous sub-part, we have explained how to give an initial position to the robot. From this position, the turtlebot should move through some different pre-defined way points. For that, we have created a python file [my_map_navigation.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation.py "my_map_navigation.py") in which we are using the *SimpleActionClient* of the actionlib library in order to define the map where we want to navigate and the coordinates of the way points.
+
+### Navigate
 
 1. On the Turtlebot's laptop :
 ```
@@ -133,39 +164,18 @@ $ roslaunch my_package navigation.launch
 This [navigation.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/launch/navigation.launch "navigation.launch Turtlebot laptop") file allows us to visualize the robot and its navigation on Rviz, and activates the pre-defined navigation.
 
 
-<a name="2D+3DMappingandNavigationwith3DPointCloudRegistration"></a>
-# 2.&ensp; 2D+3D Mapping and Navigation with 3D Point Cloud Registration
-This part of our project will use a RGBDSLAM approach to first build a RTAB-map which is in the form of a databse file (by default rtabmap.db) and then using this database to navigate in the built map usimg AMCL algorithm with defined waypoints (path planning and with obstacle avoidance) and registering the 3-D Point Cloud Data in real time of the environment.
+
+
+
+
+
+<a name="2D+3DMappingAndNavigation"></a>
+# 2.&ensp; 2D + 3D Mapping and 3D Point Cloud Registration by 2D Navigation
+
 
 
 <a name="2D+3DMapping"></a>
-## 2.1.&ensp; 2D+3D Mapping
-For the 2D+3D Mapping, we used rtabmap_ros package where rtabmap is its main node which is a wrapper of the RTAB-Map Core library. This is where the graph of the map is incrementally built and optimized when a loop closure is detected. The online output of the node is the local graph with the latest added data to the map. The default location of the RTAB-Map database is "home/.ros/rtabmap.db" and the workspace is also set to "home/.ros". 
-
-As we need to store the 3D information, we have to make sure we set subscribe_scan to "true" and explicitly set Grid/FromDepth to "true" to assemble 3D Kinect clouds for /rtabmap/cloud_map.
-
-<node pkg="rtabmap_ros" type="rtabmap" name="rtabmap">
-   ...
-   <param name="Grid/FromDepth" type="string" value="true"/>
-</node>
-
-![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/2d+3d_mapping.PNG)
-
-1. On the Turtlebot's laptop :
-```
-$ roslaunch my_package_turtlebot 3d-mapping-rtabmap.launch
-```
-This [3d-mapping-rtabmap.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/3d-mapping-rtabmap.launch "3d-mapping-rtabmap.launch Turtlebot laptop") file brings up the kobuki base and the LiDar and the kinect for starting a mapping process using both 2D and 3D information from the scene. The mapping process is somewhat similar to what we use in 
-[gmapping_demo.launch](https://github.com/turtlebot/turtlebot_apps/blob/indigo/turtlebot_navigation/launch/gmapping_demo.launch "gmapping_demo.launch Turtlebot laptop") of the official [SLAM Map Building with TurtleBot tutorial](http://wiki.ros.org/turtlebot_navigation/Tutorials/Build%20a%20map%20with%20SLAM
-"SLAM Map Building with TurtleBot"). 
-
-
-
-2. On the Workstation :
-```
-$ roslaunch my_package mapping.launch
-```
-This [mapping.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/launch/mapping.launch "mapping.launch Workstation") file allows us to control the Turtlebot manually with the logitech joystick, and visualize the robot and the mapping on Rviz. The joystick has to be plugged in the Workstation.
+## 2.1.&ensp; 2D + 3D Mapping
 
 
 
