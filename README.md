@@ -50,8 +50,8 @@ This project is composed of two parts : the first part is 2D Mapping and Navigat
 All this part has to control a robot automaticaly in its environment. This environment is composed of a 2D map which allows the robot to localize itself (create initial coordinate points) and a 3D map which will be created by the robot.
 The 3D map is a colored point cloud mapping designed by the RGB-D depth camera Kinect by Microsoft. When the robot has its 2D map, it obtains and matches the initial coordinates with the map and then moves with the goal coordinates pre-defined to finally create the 3D map of the area. On the 3D map obtained we can reconstruct a very realistic colored view and extract the details we want, for example if we want to reconstruct in 3D a big monument, we can extract the images of damages due to time from a drone and try to repair it by simulations before.
 
-And in the second part, we use RGBD-SLAM approach. RGBDSLAM acquire colored 3D models of objects and indoor scenes with a Kinect-style camera quickly. The input data which it uses is colored point cloud which is aquired by *RTAB-Map* package which is a RGB-D SLAM approach with real-time constraints.
-So, by reading the 2D map which we gaind in the first part, the robot localise itself and based upon that, and by using the rtabmap package, buils a 3D map.
+And in the second part, we use RGBD-SLAM approach. RGBDSLAM acquire colored 3D models of objects and indoor scenes with a Kinect-style camera quickly. 
+
 
 
 
@@ -251,19 +251,11 @@ Below are way points we have defined for our own navigation, in this order : (x1
 ### 3D Point Cloud Registration
 
 Point cloud registration is the process of aligning two or more 3-D point clouds of the same scene. For example, the process can include reconstructing a 3-D scene from a Kinect device, building a map of a roadway for automobiles, and deformable motion tracking.
-Point cloud registration is the process of aligning two or more 3-D point clouds of the same scene. For example, the process can include reconstructing a 3-D scene from aKinect device, building a map of a roadway for automobiles, and deformable motion tracking.
-
 For saveing a point cloud map which is built from rtabmap into a pcd file:
 ```
 rosrun pcl_ros pointcloud_to_pcd input:=/rtabmap/cloud_map
 ```
-Make sure to change the mapping launch file with following topic active. If you have set subscribe_scan to true, you should explicitly set Grid/FromDepth to true to assemble 3D Kinect clouds for /rtabmap/cloud_map:
-```
-<node pkg="rtabmap_ros" type="rtabmap" name="rtabmap">
-   ...
-   <param name="Grid/FromDepth" type="string" value="true"/>
-</node>
-```
+
 And for using a pcd file to display the 3d map in rviz we use the command below:
 ```
 rosrun pcl_ros pcd_to_pointcloud point_cloud_file.pcd
