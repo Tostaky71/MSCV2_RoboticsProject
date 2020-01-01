@@ -37,8 +37,9 @@
 
 <a name="introduction"></a>
 # Introduction
-This project is done in Linux operationg system version 16.04.6 LTS (Xenial Xerus), and implemented on Turtlebot2 robot, in ROS which is a middleware operating system in kinetic version.
-This project is composed of two parts: The first parts is 2D Mapping and Navigation, and the second part is about 2d+ 3D Maping and Navigation With 3D PointCloud Registration.
+
+This project is done in Linux operationg system version 16.04.6 LTS (Xenial Xerus), and implemented on Turtlebot2 robot, ROS which is a middleware operating system in Kinetic version.
+This project is composed of two parts: The first part is 2D Mapping and Navigation, and the second part is about 2D+3D Mapping and Navigation with 3D Point Cloud Registration.
 
 
 
