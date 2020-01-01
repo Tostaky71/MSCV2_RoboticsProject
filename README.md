@@ -223,7 +223,7 @@ This [view-rviz-rtabmap-mapping.launch](https://github.com/Tostaky71/MSCV2_Robot
 
 ### 2D Navigation
 
-For the navigation, a python file has been created : [my_map_navigation2.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation2.py "my_map_navigation2.py") which is very similar to the [my_map_navigation.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation.py "my_map_navigation.py") file explained in part 1.2. Thanks to the 3D information we get from the map, the robot is able to localize itself autonomously, by 
+For the navigation, a python file has been created : [my_map_navigation2.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation2.py "my_map_navigation2.py") which is very similar to the [my_map_navigation.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation.py "my_map_navigation.py") file explained in part 1.2. Thanks to the 3D information we get from the map, the robot is able to localize itself autonomously, by turning round. So, we start the navigation by making the turtlebot turning round, so that he could localize itself from the begining of the navigation.
 
 Below is the path we have defined for our own navigation, in this order : (x1,y1), (x2,y2), (x3,y3), (x0,y0), (xCenter, yCenter).
 ![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/my_map_navigation2.PNG)
