@@ -32,6 +32,8 @@
 
 [ Conclusion ](#conclusion)
 
+[ References ](#references)
+
 
 <a name="introduction"></a>
 # Introduction
@@ -137,11 +139,11 @@ This last line shows the current position coordinates of the turtlebot on the kn
 <arg name="initial_pose_y" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
 <arg name="initial_pose_a" default="0.0"/>
 ```
-Now we need to define some way points the turtlebot we go through during its autonomous navigation, starting from the initial position we have defined.
+Now we need to define some way points the turtlebot will go through during its autonomous navigation, starting from the initial position we have defined.
 
 ### Path planning
 
-
+For this task, a python file has been created : [my_map_navigation.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation.py "my_map_navigation.py") in which we use the *SimpleActionClient* of the actionlib library. This allows the turtlebot 
 
 
 1. On the Turtlebot's laptop :
@@ -207,7 +209,9 @@ This [view-rviz-rtabmap-mapping.launch](https://github.com/Tostaky71/MSCV2_Robot
 Find [here](https://www.youtube.com/watch?v=6kZGIS9Ye74&t=1s "project video") the video that illustrates our project.
 
 
+<a name="references"></a>
+# References
 
-
+[ActionLi SimpleActionClient ROS tutorial](http://wiki.ros.org/actionlib_tutorials/Tutorials/SimpleActionClient "SimpleActionClient ROS")
 
 
