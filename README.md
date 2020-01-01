@@ -131,14 +131,16 @@ $ roslaunch turtlebot_teleop logitech.launch
 $ roslaunch turtlebot_rviz_launchers view_navigation.launch --screen
 $ rosrun tf tf_echo /map /base_link
 ```
-This last line shows the current position coordinates of the turtlebot on the known map. Once we have placed (with the joystick) the turtlebot in the position we want to be the initial position of the autonomous navigation, we get its coordinates and we place them into the [amcl_demo_rplidar.launch](https://github.com/roboticslab-fr/turtlebot_vibot/blob/master/turtlebot_vibot_nav/launch/amcl_demo_rplidar.launch "amcl_demo_rplidar.launch turtlebot_vibot") file at lines 25, 26 and 27, replacing the *0.0* values :
+This last line shows the current position coordinates of the turtlebot on the known map. Once we have placed (with the joystick) the turtlebot in the position we want to be the initial position of the autonomous navigation, we get its coordinates and we place them into the [amcl_demo_rplidar.launch](https://github.com/roboticslab-fr/turtlebot_vibot/blob/master/turtlebot_vibot_nav/launch/amcl_demo_rplidar.launch "amcl_demo_rplidar.launch turtlebot_vibot") file at lines 25, 26 and 27, instead of the 0.0 values :
 ```
- <arg name="initial_pose_x" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
- <arg name="initial_pose_y" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
- <arg name="initial_pose_a" default="0.0"/>
+<arg name="initial_pose_x" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
+<arg name="initial_pose_y" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
+<arg name="initial_pose_a" default="0.0"/>
 ```
+Now we need to define some way points the turtlebot we go through during its autonomous navigation, starting from the initial position we have defined.
 
 ### Path planning
+
 
 
 
