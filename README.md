@@ -269,6 +269,7 @@ And for using a pcd file to display the 3d map in rviz we use the command below:
 rosrun pcl_ros pcd_to_pointcloud point_cloud_file.pcd
 ```
 
+![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/3D%20point%20cloud%20reconstruction.PNG)
 
 <a name="conclusion"></a>
 # Conclusion
