@@ -50,6 +50,11 @@ This project is composed of two parts : the first part is 2D Mapping and Navigat
 All this part has to control a robot automaticaly in its environment. This environment is composed of a 2D map which allows the robot to localize itself (create initial coordinate points) and a 3D map which will be created by the robot.
 The 3D map is a colored point cloud mapping designed by the RGB-D depth camera Kinect by Microsoft. When the robot has its 2D map, it obtains and matches the initial coordinates with the map and then moves with the goal coordinates pre-defined to finally create the 3D map of the area. On the 3D map obtained we can reconstruct a very realistic colored view and extract the details we want, for example if we want to reconstruct in 3D a big monument, we can extract the images of damages due to time from a drone and try to repair it by simulations before.
 
+And in the second part, we use RGBD-SLAM approach. RGBDSLAM acquire colored 3D models of objects and indoor scenes with a Kinect-style camera quickly. The input data which it uses is colored point cloud which is aquired by RTAB-Map package which is a RGB-D SLAM approach with real-time constraints.
+So, by reading the 2D map which we gaind in the first part, the robot localise itself and based apone that, and by using the rtabmap package, buils a 3D map.
+
+RGBDSLAM acquire colored 3D models of objects and indoor scenes with a Kinect-style camera quickly. 
+
 <a name="dependencies"></a>
 ## Dependencies
 
