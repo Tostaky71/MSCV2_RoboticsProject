@@ -245,6 +245,8 @@ Below are way points we have defined for our own navigation, in this order : (x1
 
 ### 3D Point Cloud Registration
 
+Point cloud registration is the process of aligning two or more 3-D point clouds of the same scene. For example, the process can include reconstructing a 3-D scene from aKinect device, building a map of a roadway for automobiles, and deformable motion tracking.
+
 <a name="conclusion"></a>
 # Conclusion
 
