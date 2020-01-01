@@ -42,7 +42,7 @@ This project is done in Linux operationg system version 16.04.6 LTS (Xenial Xeru
 
 ![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/hardware_description.PNG)
 
-This project is composed of two parts: The first part is 2D Mapping and Navigation, and the second part is about 2D+3D Mapping and Navigation with 3D Point Cloud Registration.
+This project is composed of two parts : the first part is 2D Mapping and Navigation, and the second part is about 2D+3D Mapping and Navigation with 3D Point Cloud Registration.
 
 
 
