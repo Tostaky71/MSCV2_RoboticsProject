@@ -47,8 +47,9 @@ This project is done in Linux operationg system version 16.04.6 LTS (Xenial Xeru
 ## Description of the Project
 
 This project is composed of two parts: The first parts is 2D Mapping and Navigation, and the second part is about 2d+ 3D Maping and Navigation With 3D PointCloud Registration.
-All this part has to control a robot automaticaly in its environnment. This evironnement is composed of a 2D map which allows the robot to localize itself (create initial coordinate points) and a 3D map which will be created by the robot.
-The 3D map is a colored point cloud mapping designed by the RGB-D depth camera Kinect by Microsoft. When the robot has it's 2D map, it will obtain and match the initial coordinates with the map and then move with the goal coordinates defined to finally create the 3D map of the area. On the 3D map obtained we can reconstruct a very realistic colored view and extract the details we want, for example if we want to reconstruct in 3D a big monument, we can extract the images of dammages due to time from a drone and try to repair it by simulations before.
+
+All this part has to control a robot automaticaly in its environment. This evironment is composed of a 2D map which allows the robot to localize itself (create initial coordinate points) and a 3D map which will be created by the robot.
+The 3D map is a colored point cloud mapping designed by the RGB-D depth camera Kinect by Microsoft. When the robot has its 2D map, it obtains and matches the initial coordinates with the map and then moves with the goal coordinates pre-defined to finally create the 3D map of the area. On the 3D map obtained we can reconstruct a very realistic colored view and extract the details we want, for example if we want to reconstruct in 3D a big monument, we can extract the images of damages due to time from a drone and try to repair it by simulations before.
 
 <a name="dependencies"></a>
 ## Dependencies
