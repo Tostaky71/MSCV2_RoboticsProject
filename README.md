@@ -246,6 +246,11 @@ Find [here](https://www.youtube.com/watch?v=6kZGIS9Ye74&t=1s "project video") th
 <a name="references"></a>
 # References
 
+[Navigation sending simple goals ROS tutorial](http://wiki.ros.org/navigation/Tutorials/SendingSimpleGoals "Sending simple goals ROS")
+
 [ActionLib SimpleActionClient ROS tutorial](http://wiki.ros.org/actionlib_tutorials/Tutorials/SimpleActionClient "SimpleActionClient ROS")
 
+[Navigate in a map Gaitech tutorial](http://edu.gaitech.hk/turtlebot/map-navigation.html "Gaitech navigation")
+
+[Publishing messages examples](https://python.hotexamples.com/examples/kobuki_msgs.msg/Sound/value/python-sound-value-method-examples.html "Publishing messages")
 
