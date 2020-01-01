@@ -154,10 +154,11 @@ self.y1 = 2.828
 self.x0 = -1.462
 self.y0 = -0.748
 ```
+![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/my_map_navigation.PNG)
+
 Then, for each way point, we create an *if* condition in which we say if the previous way point has been given and tried to be reached, then do the same for the current way point. It means that sometimes, the turtlebot is not able to reach the way point because of an obstacle located at the coordinates of that way point. So, in this case, the turtlebot does not find any path to reach that position and then gives up and goes to the next way point.
 
-
-
+### Execute the autonomous navigation
 
 1. On the Turtlebot's laptop :
 ```
