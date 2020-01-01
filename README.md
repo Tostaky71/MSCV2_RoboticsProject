@@ -53,7 +53,7 @@ The 3D map is a colored point cloud mapping designed by the RGB-D depth camera K
 And in the second part, we use RGBD-SLAM approach. RGBDSLAM acquire colored 3D models of objects and indoor scenes with a Kinect-style camera quickly. The input data which it uses is colored point cloud which is aquired by RTAB-Map package which is a RGB-D SLAM approach with real-time constraints.
 So, by reading the 2D map which we gaind in the first part, the robot localise itself and based apone that, and by using the rtabmap package, buils a 3D map.
 
-RGBDSLAM acquire colored 3D models of objects and indoor scenes with a Kinect-style camera quickly. 
+
 
 <a name="dependencies"></a>
 ## Dependencies
