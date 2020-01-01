@@ -37,6 +37,10 @@
 
 <a name="introduction"></a>
 # Introduction
+This project is done in Linux operationg system version 16.04.6 LTS (Xenial Xerus), and implemented on Turtlebot2 robot, in ROS which is a middleware operating system in kinetic version.
+This project is composed of two parts: The first parts is 2D Mapping and Navigation, and the second part is about 2d+ 3D Maping and Navigation With 3D PointCloud Registration.
+
+
 
 <a name="description"></a>
 ## Description of the Project
@@ -216,17 +220,6 @@ This [view-rviz-rtabmap-mapping.launch](https://github.com/Tostaky71/MSCV2_Robot
 
 <a name="2DNavigationwith3DPointCloudRegistration"></a>
 ## 2.2.&ensp; 2D Navigation with 3D Point Cloud Registration
-
-### 2D Navigation
-
-For the navigation, a python file has been created : [my_map_navigation2.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation2.py "my_map_navigation2.py") which is very similar to the [my_map_navigation.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation.py "my_map_navigation.py") file explained in part 1.2. Thanks to the 3D information we get from the map, the robot is able to localize itself autonomously, by 
-
-Below is the path we have defined for our own navigation, in this order : (x1,y1), (x2,y2), (x3,y3), (x0,y0), (xCenter, yCenter).
-![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/my_map_navigation2.PNG)
-
-
-### 3D Point Cloud Registration
-
 
 
 <a name="conclusion"></a>
