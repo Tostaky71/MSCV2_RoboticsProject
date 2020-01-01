@@ -143,7 +143,7 @@ Now we need to define some way points the turtlebot will go through during its a
 
 ### Path planning
 
-For this task, a python file has been created : [my_map_navigation.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation.py "my_map_navigation.py") in which we use the *SimpleActionClient* of the actionlib library. This allows the turtlebot 
+For this task, a python file has been created : [my_map_navigation.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation.py "my_map_navigation.py") in which we use the *SimpleActionClient* of the actionlib library. This allows us to send an action goal to the turtlebot server by specifying which message we want to send. In our python file, we use the messages *actionlib_msgs*, *move_base_msgs* (*MoveBaseAction, MoveBaseGoal*), *the geometry_msgs* (*Point*) and the *kobuki_msgs* (*Sound*). We use this last one in order to make a particular sound each time the turtlebot reaches a way points.
 
 
 1. On the Turtlebot's laptop :
@@ -212,6 +212,6 @@ Find [here](https://www.youtube.com/watch?v=6kZGIS9Ye74&t=1s "project video") th
 <a name="references"></a>
 # References
 
-[ActionLi SimpleActionClient ROS tutorial](http://wiki.ros.org/actionlib_tutorials/Tutorials/SimpleActionClient "SimpleActionClient ROS")
+[ActionLib SimpleActionClient ROS tutorial](http://wiki.ros.org/actionlib_tutorials/Tutorials/SimpleActionClient "SimpleActionClient ROS")
 
 
