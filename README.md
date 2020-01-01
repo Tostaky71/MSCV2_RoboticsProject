@@ -42,7 +42,6 @@ This project is done in Linux operationg system version 16.04.6 LTS (Xenial Xeru
 
 ![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/hardware_description.PNG)
 
-
 <a name="description"></a>
 ## Description of the Project
 
@@ -59,10 +58,19 @@ This repository contains 2 packages : the *my_package* package has to be install
 <a name="turtlebot_vibot"></a>
 ### Turtlebot_vibot
 
+The turtlebot_vibot dependency provides the minimum to work with the Kobuki robot. It is composed of 2 main packages : The turtlebot_vibot _bringup to active and manipulate the robot (it enables the Lidar and the Kinect sensors only) and turtlebot_vibot_nav to use the 2D mapping with the LIDAR and make the robot autonomous with a knowned 2D map.
+
 Find [here](https://github.com/roboticslab-fr/turtlebot_vibot "turtlebot_vibot package") the turtlebot_vibot package.
 
 <a name="pcl"></a>
 ### Point Cloud Library
+
+The PCL pointcloud library provides everything we want to create a real time 3D mapping for turtlebot robots. It contains filtering, feature estimation, surface reconstruction, registration, model fitting and segmentation. This library could be used with a laser scan (here the LIDAR) or a stereoscopic RGB-D Camera (here the Kinect) and can represent single scenes, create a map (for navigation) or reconstruct Object Models (for object recognition).
+For our part we only use this library for 3D mapping in case of autonomous navigation.
+
+Here is an example of pointcloud using for a single scene reconstruction.
+
+![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/PCL_example.png)
 
 Find [here](https://github.com/ros-perception/perception_pcl "perception_pcl package") the perception_pcl package.
 
