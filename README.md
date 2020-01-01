@@ -38,7 +38,10 @@
 <a name="introduction"></a>
 # Introduction
 
-This project is done in Linux operationg system version 16.04.6 LTS (Xenial Xerus), and implemented on Turtlebot2 robot, ROS which is a middleware operating system in Kinetic version.
+This project is done in Linux operationg system version 16.04.6 LTS (Xenial Xerus), and implemented on Turtlebot2 robot, ROS which is a middleware operating system in Kinetic version. Find below a hardware description of our Turtlebot2, eqquipped with a LiDar and a Kinect.
+
+![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/hardware_description.PNG)
+
 This project is composed of two parts: The first part is 2D Mapping and Navigation, and the second part is about 2D+3D Mapping and Navigation with 3D Point Cloud Registration.
 
 
