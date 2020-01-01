@@ -111,6 +111,8 @@ We should obtain two files describing the map : my_map.pgm and my_map.yaml
 <a name="2DNavigationWithPathPlanning"></a>
 ## 1.2.&ensp; 2D Navigation with path planning
 
+### Modifications
+
 In this part, we need to modify few lines in the *turtlebot_vibot* package. For that, go into its sub-package *turtlebot_vibot_nav*, the *launch* directory and open the [amcl_demo_rplidar.launch](https://github.com/roboticslab-fr/turtlebot_vibot/blob/master/turtlebot_vibot_nav/launch/amcl_demo_rplidar.launch "amcl_demo_rplidar.launch turtlebot_vibot") file to modify it with the few lines below, starting from line 20 of the file :
 ```
 <!-- Map server -->
@@ -118,7 +120,27 @@ In this part, we need to modify few lines in the *turtlebot_vibot* package. For 
 <arg name="map_file" default="$(find turtlebot_vibot_nav)/maps/my_map.yaml"/>
 <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 ```
-This modification of giving the path map, allows us to open the known map directly by launching this file.
+This modification of giving the path map, allows us to open the known map directly by launching this file. Plus, to start an autonomous navigation, the robot has to know its initial location on the known map, so we decide an initial position where we will always place the turtlebot before its navigation starts. For that, we need to make a manual navigation of the turtlebot in order to get its position coordinates on the known map. This is executable with the following commands :
+1. On the Turtlebot's laptop :
+```
+$ roslaunch my_package_turtlebot navigation.launch
+```
+2. On the Workstation :
+```
+$ roslaunch turtlebot_teleop logitech.launch
+$ roslaunch turtlebot_rviz_launchers view_navigation.launch --screen
+$ rosrun tf tf_echo /map /base_link
+```
+This last line shows the current position coordinates of the turtlebot on the known map. Once we have placed (with the joystick) the turtlebot in the position we want to be the initial position of the autonomous navigation, we get its coordinates and we place them into the [amcl_demo_rplidar.launch](https://github.com/roboticslab-fr/turtlebot_vibot/blob/master/turtlebot_vibot_nav/launch/amcl_demo_rplidar.launch "amcl_demo_rplidar.launch turtlebot_vibot") file at lines 25, 26 and 27, replacing the *0.0* values :
+```
+ <arg name="initial_pose_x" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
+ <arg name="initial_pose_y" default="0.0"/> <!-- Use 17.0 for willow's map in simulation -->
+ <arg name="initial_pose_a" default="0.0"/>
+```
+
+### Path planning
+
+
 
 1. On the Turtlebot's laptop :
 ```
