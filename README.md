@@ -217,6 +217,16 @@ This [view-rviz-rtabmap-mapping.launch](https://github.com/Tostaky71/MSCV2_Robot
 <a name="2DNavigationwith3DPointCloudRegistration"></a>
 ## 2.2.&ensp; 2D Navigation with 3D Point Cloud Registration
 
+### Navigation
+
+For the navigation, a python file has been created : [my_map_navigation2.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation2.py "my_map_navigation2.py") which is very similar to the [my_map_navigation.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation.py "my_map_navigation.py") file explained in part 1.2.
+
+Below is the path we have defined for our own navigation, in this order : initial position, (x1,y1), (x2,y2), (x3,y3), (x0,y0), (xCenter, yCenter).
+![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/my_map_navigation2.PNG)
+
+
+
+
 
 <a name="conclusion"></a>
 # Conclusion
