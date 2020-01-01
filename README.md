@@ -143,7 +143,20 @@ Now we need to define some way points the turtlebot will go through during its a
 
 ### Path planning
 
-For this task, a python file has been created : [my_map_navigation.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation.py "my_map_navigation.py") in which we use the *SimpleActionClient* of the actionlib library. This allows us to send an action goal to the turtlebot server by specifying which message we want to send. In our python file, we use the messages *actionlib_msgs*, *move_base_msgs* (*MoveBaseAction, MoveBaseGoal*), *the geometry_msgs* (*Point*) and the *kobuki_msgs* (*Sound*). We use this last one in order to make a particular sound each time the turtlebot reaches a way points.
+For this task, a python file has been created : [my_map_navigation.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation.py "my_map_navigation.py") in which we use the *SimpleActionClient* of the actionlib library. This allows us to send an action goal to the turtlebot server by specifying which message we want to send. In our python file, we use the messages *actionlib_msgs*, *move_base_msgs* (*MoveBaseAction, MoveBaseGoal*), *the geometry_msgs* (*Point*) and the *kobuki_msgs* (*Sound*). We use this last one in order to make a particular sound each time the turtlebot reaches a way point. Lines 26 to 34 of our [my_map_navigation.py](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/scripts/my_map_navigation.py "my_map_navigation.py") file, we declare the coordinates of each way points into some variables :
+```
+# declare the coordinates of interest 
+self.x1 = 1.431
+self.y1 = 2.828
+.
+.
+.
+self.x0 = -1.462
+self.y0 = -0.748
+```
+Then, for each way point, we create an *if* condition in which we say if the previous way point has been given and tried to be reached, then do the same for the current way point. It means that sometimes, the turtlebot is not able to reach the way point because of an obstacle located at the coordinates of that way point. So, in this case, the turtlebot does not find any path to reach that position and then gives up and goes to the next way point.
+
+
 
 
 1. On the Turtlebot's laptop :
