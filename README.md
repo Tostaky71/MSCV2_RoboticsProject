@@ -50,8 +50,8 @@ This project is composed of two parts : the first part is 2D Mapping and Navigat
 All this part has to control a robot automaticaly in its environment. This environment is composed of a 2D map which allows the robot to localize itself (create initial coordinate points) and a 3D map which will be created by the robot.
 The 3D map is a colored point cloud mapping designed by the RGB-D depth camera Kinect by Microsoft. When the robot has its 2D map, it obtains and matches the initial coordinates with the map and then moves with the goal coordinates pre-defined to finally create the 3D map of the area. On the 3D map obtained we can reconstruct a very realistic colored view and extract the details we want, for example if we want to reconstruct in 3D a big monument, we can extract the images of damages due to time from a drone and try to repair it by simulations before.
 
-And in the second part, we use RGBD-SLAM approach. RGBDSLAM acquire colored 3D models of objects and indoor scenes with a Kinect-style camera quickly. The input data which it uses is colored point cloud which is aquired by RTAB-Map package which is a RGB-D SLAM approach with real-time constraints.
-So, by reading the 2D map which we gaind in the first part, the robot localise itself and based apone that, and by using the rtabmap package, buils a 3D map.
+And in the second part, we use RGBD-SLAM approach. RGBDSLAM acquire colored 3D models of objects and indoor scenes with a Kinect-style camera quickly. The input data which it uses is colored point cloud which is aquired by *RTAB-Map* package which is a RGB-D SLAM approach with real-time constraints.
+So, by reading the 2D map which we gaind in the first part, the robot localise itself and based upon that, and by using the rtabmap package, buils a 3D map.
 
 
 
@@ -272,7 +272,7 @@ rosrun pcl_ros pcd_to_pointcloud point_cloud_file.pcd
 
 <a name="conclusion"></a>
 # Conclusion
-
+In this project, we were able to develop a turtlebot2 robot to do the mapping and navigation in 2D and for the computer vision part of the robot, with RGBD approach, we were able to build visual odometry, 3D mapping and 3D reconstruction.
 Find [here](https://www.youtube.com/watch?v=6kZGIS9Ye74&t=1s "project video") the video that illustrates our project.
 
 
