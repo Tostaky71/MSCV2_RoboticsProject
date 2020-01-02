@@ -242,22 +242,50 @@ For the navigation, a python file has been created : [my_map_navigation2.py](htt
 Below are way points we have defined for our own navigation, in this order : (x1,y1), (x2,y2), (x3,y3), (x0,y0), (xCenter, yCenter).
 ![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/my_map_navigation2.PNG)
 
+The good thing is, until the robot localizes itself, it will not start updating the database file (rtabmap.db). This can be controlled by adding these lines to the the launch files:
+
+```
+<node name="rtabmap" pkg="rtabmap_ros" type="rtabmap" output="screen" args="$(arg args)">
+
+<!-- localization mode -->
+	  <param     if="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
+	  <param unless="$(arg localization)" name="Mem/IncrementalMemory" type="string" value="true"/>
+	  <param name="Mem/InitWMWithAllNodes" type="string" value="$(arg localization)"/> 
+  </node>
+```
 
 ### 3D Point Cloud Registration
 
 Point cloud registration is the process of aligning two or more 3-D point clouds of the same scene. For example, the process can include reconstructing a 3-D scene from a Kinect device, building a map of a roadway for automobiles, and deformable motion tracking.
-For saveing a point cloud map which is built from rtabmap into a pcd file:
+
+One important thing, while navigation is, we should always have a RTAB-map (rtabmap.db) which was built during mapping session in Section 2.1 above and we should avoid deleting that map. In order to achieve this goal, we have removed the argument which was given in mapping mode i.e. "--delete_db_on_start" in 
+
+ [3d-navigation-rtabmap.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/3d-navigation-rtabmap.launch "3d-navigation-rtabmap.launch Turtlebot laptop") to avoid removal of the map.
+ 
+ 1. On the Turtlebot's laptop :
+```
+$ roslaunch my_package_turtlebot 3d-navigation-rtabmap.launch
+```
+This [3d-navigation-rtabmap.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/3d-navigation-rtabmap.launch "3d-navigation-rtabmap.launch Turtlebot laptop") file brings up the kobuki base, rgbd parameters of the camera (the Kinect) with localization parameters activated and executes a python file my_map_navigation2.py for starting a navigation with pre-defined waypoints (as explained above in this Section 2.2
+
+2. On the Workstation :
+```
+$ roslaunch my_package view-rviz-rtabmap-navigation.launch
+```
+
+This [view-rviz-rtabmap-navigation.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package/launch/view-rviz-rtabmap-navigation.launch "view-rviz-rtabmap-navigation.launch Workstation") file will load rviz with a pre-saved configuration file to visualize only 3D Point Cloud data which is being published presently on /rtabmap/cloud_map. Once the navigation starts, with a full rotation of the turtlebot and finishes after being through each of the pre-defined waypoints, we can obtain the 3D PointCloud data of the enivronment as shown in figure below:
+
+![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/3D%20point%20cloud%20reconstruction.PNG)
+
+Further if we want we can save the obtained PointCloud information into a pcd file by using pcl_ros as shown below:
 ```
 rosrun pcl_ros pointcloud_to_pcd input:=/rtabmap/cloud_map
 ```
 
-And for using a pcd file to display the 3d map in rviz we use the command below:
+And for using a pcd file to display the 3d map in rviz later, we use following command:
 ```
 rosrun pcl_ros pcd_to_pointcloud point_cloud_file.pcd
 ```
-
-![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/3D%20point%20cloud%20reconstruction.PNG)
-
 <a name="conclusion"></a>
 # Conclusion
 In this project, we were able to develop a turtlebot2 robot to do the mapping and navigation in 2D and for the computer vision part of the robot, with RGBD approach, we were able to build visual odometry, 3D mapping and 3D reconstruction.
