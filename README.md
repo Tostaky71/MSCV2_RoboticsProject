@@ -289,7 +289,7 @@ rosrun pcl_ros pcd_to_pointcloud point_cloud_file.pcd
 # Conclusion
 In this project, we were able to develop a turtlebot2 robot to do the mapping and navigation in 2D and for the computer vision part of the robot, with RGBD approach, we were able to build visual odometry, 3D mapping and 3D reconstruction. 
 
-![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/Conclution-Image.jpgG)
+![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/Conclution-Image.jpg)
 
 Find [here](https://www.youtube.com/watch?v=6kZGIS9Ye74&t=1s "project video") the video that illustrates our project.
 
