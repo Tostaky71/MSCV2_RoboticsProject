@@ -86,7 +86,7 @@ Find [here](https://github.com/ros/actionlib "actionlib package") the actionlib 
 
 rgbdslam (v2) is a SLAM solution for RGB-D cameras. It provides the current pose of the camera and allows to create a registered point cloud or an octomap. It features a GUI interface for easy usage, but can also be controlled by ROS service calls, e.g., when running on a robot.
 
-Find [here](http://wiki.ros.org/rgbdslam "rgbdslam package") the rgbdslam package.
+Find [here](http://wiki.ros.org/rgbdslam "rgbdslam package") the description of this rgbdslam package. As the installation of this package was tricky, so in order to make things more convenient and easy to understand we have written a script ([setup.sh](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/setup.sh "Script to install rgbdslam")) which will do the job of installing rgbdlam package from scratch. 
 
 <a name="rtabmap"></a>
 ### Rtabmap
@@ -258,15 +258,14 @@ The good thing is, until the robot localizes itself, it will not start updating 
 
 Point cloud registration is the process of aligning two or more 3-D point clouds of the same scene. For example, the process can include reconstructing a 3-D scene from a Kinect device, building a map of a roadway for automobiles, and deformable motion tracking.
 
-One important thing, while navigation is, we should always have a RTAB-map (rtabmap.db) which was built during mapping session in Section 2.1 above and we should avoid deleting that map. In order to achieve this goal, we have removed the argument which was given in mapping mode i.e. "--delete_db_on_start" in 
-
+One important thing while navigation is, we should always have a RTAB-map (rtabmap.db) which was built during mapping session in Section 2.1 above. In order to achieve this goal, we have removed the argument which was given in mapping mode i.e. "--delete_db_on_start" in 
  [3d-navigation-rtabmap.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/3d-navigation-rtabmap.launch "3d-navigation-rtabmap.launch Turtlebot laptop") to avoid removal of the map.
  
  1. On the Turtlebot's laptop :
 ```
 $ roslaunch my_package_turtlebot 3d-navigation-rtabmap.launch
 ```
-This [3d-navigation-rtabmap.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/3d-navigation-rtabmap.launch "3d-navigation-rtabmap.launch Turtlebot laptop") file brings up the kobuki base, rgbd parameters of the camera (the Kinect) with localization parameters activated and executes a python file my_map_navigation2.py for starting a navigation with pre-defined waypoints (as explained above in this Section 2.2
+This [3d-navigation-rtabmap.launch](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/my_package_turtlebot/launch/3d-navigation-rtabmap.launch "3d-navigation-rtabmap.launch Turtlebot laptop") file brings up the kobuki base, rgbd parameters of the camera (the Kinect) with localization parameters activated and executes a python file my_map_navigation2.py for starting a navigation with pre-defined waypoints (as explained above in this Section 2.2)
 
 2. On the Workstation :
 ```
@@ -277,7 +276,7 @@ This [view-rviz-rtabmap-navigation.launch](https://github.com/Tostaky71/MSCV2_Ro
 
 ![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/3D%20point%20cloud%20reconstruction.PNG)
 
-Further if we want we can save the obtained PointCloud information into a pcd file by using pcl_ros as shown below:
+Further if we want to save the obtained PointCloud information into a pcd file by using pcl_ros as shown below:
 ```
 rosrun pcl_ros pointcloud_to_pcd input:=/rtabmap/cloud_map
 ```
@@ -288,7 +287,10 @@ rosrun pcl_ros pcd_to_pointcloud point_cloud_file.pcd
 ```
 <a name="conclusion"></a>
 # Conclusion
-In this project, we were able to develop a turtlebot2 robot to do the mapping and navigation in 2D and for the computer vision part of the robot, with RGBD approach, we were able to build visual odometry, 3D mapping and 3D reconstruction.
+In this project, we were able to develop a turtlebot2 robot to do the mapping and navigation in 2D and for the computer vision part of the robot, with RGBD approach, we were able to build visual odometry, 3D mapping and 3D reconstruction. 
+
+![alt text](https://github.com/Tostaky71/MSCV2_RoboticsProject/blob/master/images/Conclution-Image.jpgG)
+
 Find [here](https://www.youtube.com/watch?v=6kZGIS9Ye74&t=1s "project video") the video that illustrates our project.
 
 
